@@ -1,0 +1,8 @@
+feature,importance
+distance_transform,-0.10894496011875443
+boundary_hint,-0.19984801784104278
+contour_similarity,-0.11367041904095643
+gradient_agreement,-0.10864529195714656
+area_consistency,-0.10875865153699182
+translation_smoothness,-0.11400735661183758
+neighbor_consistency,-0.10875865153699182

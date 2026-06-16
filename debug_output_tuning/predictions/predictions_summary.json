@@ -1,0 +1,10 @@
+{
+    "total_plots": 36,
+    "corrected": 3,
+    "flagged": 33,
+    "unique_corrected_confidences": 3,
+    "average_confidence": 0.29360457961873765,
+    "median_confidence": 0.2,
+    "average_shift": 1.4088852302109822,
+    "median_shift": 0.0
+}

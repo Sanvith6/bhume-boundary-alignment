@@ -1,0 +1,11 @@
+{
+    "input_file_hash": "eab14c4750f3b2f28040fe7e7ff26d44",
+    "search_radius_m": 12.0,
+    "patch_pad_m": 30.200378782444083,
+    "threshold_already_correct": 1.5083103128998356,
+    "dx_global": 5.5,
+    "dy_global": 12.0,
+    "village_shift_mad": 36.55392427428929,
+    "confidence_center": 0.36676325873182203,
+    "confidence_k": 24.36524747891458
+}

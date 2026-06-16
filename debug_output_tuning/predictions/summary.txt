@@ -1,0 +1,7 @@
+Total plots: 36
+Corrected: 3
+Flagged: 33
+Correction rate: 0.083333
+Average confidence: 0.293605
+Average improvement: 0.079924
+Average shift: 1.408885

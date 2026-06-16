@@ -1,0 +1,9 @@
+{
+    "schema_valid": true,
+    "geometry_valid": true,
+    "crs_valid": true,
+    "duplicate_plots": false,
+    "invalid_confidence": false,
+    "timestamp": "2026-06-12T14:31:46.166034",
+    "validation_passed": true
+}

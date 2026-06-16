@@ -1,0 +1,9 @@
+module,execution_time,percentage
+load,0.948766,0.00
+preprocess,90.616592,0.07
+edges,114.763406,0.09
+optimize,129448.512520,99.82
+regularize,3.811934,0.00
+confidence,22.003959,0.02
+decision,0.962252,0.00
+writer,1.284847,0.00
