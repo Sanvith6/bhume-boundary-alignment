@@ -4,6 +4,21 @@ This repository contains the complete, highly-optimized algorithm designed to so
 
 The primary objective is to mathematically predict the true on-the-ground boundaries of agricultural plots by transforming official (and often misaligned) government GeoJSON vector maps to perfectly match high-resolution GeoTIFF satellite imagery.
 
+## Visual Pipeline
+Our algorithm uses a Multi-Scale Computer Vision pipeline to snap plot boundaries to their true physical edges. 
+
+### 1. Multi-Scale Edge Detection
+Instead of blindly searching pixels, we extract high-contrast physical edges (roads, trees, fences) from the satellite imagery at multiple resolutions (coarse to fine).
+![Edge Detection Pipeline](assets/edge_detection.png)
+
+### 2. Rotational Spatial Optimizer
+The pipeline scans thousands of potential shifts and rotations (-15° to +15°) to find the perfect mathematical alignment between the GeoJSON plot and the physical Canny edges.
+![Optimizer Path Tracking](assets/optim_path.png)
+
+### 3. Log-Odds Restraint Grid
+A global regularization grid prevents visual hallucinations, mathematically stopping a farm from snapping to a neighbor's roof or shrinking its agricultural area.
+![Log-Odds Restraint Grid](assets/regularizer_grid.png)
+
 ## Documentation & Submission Requirements
 
 ### 1. Technical Architecture Overview
