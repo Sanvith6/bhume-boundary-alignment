@@ -15,7 +15,7 @@ To solve this, we implemented a Pyramidal Edge Detector:
 3. A Euclidean Distance Transform (EDT) converts the sharp binary edges into a smooth gradient, allowing the optimizer to "slide" downhill toward the true boundary.
 4. This is done at multiple scales (0.25x, 0.5x, and 1.0x). The optimizer searches the highly-compressed 0.25x grid first, then only uses the 1.0x scale when it is micrometer-close to the peak.
 
-![Edge Detection](assets/edge_detection.png)
+![Pyramid Multiscale](assets/multiscale_pyramid.png)
 
 ---
 
@@ -24,7 +24,7 @@ Visual boundaries in agriculture are incredibly noisy. Without structural restra
 
 To prevent this hallucination, we utilize a **Global Regularization Grid**. Before any plot is allowed to shift, the pipeline checks the global neighborhood. The grid mathematically penalizes any ($dx, dy$) shift that would cause the plot to crash into an adjacent farm or radically diverge from the neighborhood's general consensus drift.
 
-![Regularization Grid](assets/regularizer_grid.png)
+![Contour Vectorization](assets/vector_contour.png)
 
 ---
 
@@ -35,8 +35,6 @@ Using `scipy.ndimage.map_coordinates`, the optimizer rapidly interpolates the pl
 
 We utilize a **14-Signal Log-Odds Evidence Accumulator** to score each candidate. The candidate must prove its worth not just visually, but topologically. If the optimizer path twists the plot too severely or shrinks the total area, the candidate score is crushed. The path of the highest-scoring topological shift is ultimately chosen.
 
-![Optimizer Path](assets/optim_path.png)
-
 ---
 
 ## Phase 4: Confidence & Decision Engine
@@ -45,6 +43,8 @@ Even with the best math, some plots simply do not have visible boundaries (e.g. 
 The pipeline never forces an answer. The Decision Engine compares the pre-alignment score against the post-alignment score. 
 - If the delta is massive and the final IoU is stable, it receives a status of `Corrected`.
 - If the visual evidence is too weak, or if the boundaries are dangerously ambiguous, the system enforces restraint and safely outputs a `Flagged` status, returning the plot to its original coordinates to prevent destructive modifications.
+
+![Decision Confidence Engine](assets/decision_pie.png)
 
 ---
 
